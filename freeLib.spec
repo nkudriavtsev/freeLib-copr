@@ -57,6 +57,7 @@ popd
 
 
 %install
+cd %{gitdir}
 pushd build
 %make_install
 popd

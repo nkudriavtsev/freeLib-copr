@@ -6,7 +6,8 @@ Release:        1%{?dist}
 Summary:        Manage catalogs for LibRusEc and Flibusta libraries
 License:        GPLv3+
 URL:            https://github.com/petrovvlad/freeLib
-Source0:        https://github.com/petrovvlad/freeLib/archive/refs/tags/v%{version}.tar.gz
+%dnl Source0:        https://github.com/petrovvlad/freeLib/archive/refs/tags/v%{version}.tar.gz
+BuildRequires:  git
 BuildRequires:  cmake
 BuildRequires:  qt6-qtbase-devel
 BuildRequires:  qt6-qt5compat-devel
@@ -36,11 +37,17 @@ has been discontinued.
   * Customize book formatting (fonts, lettering, headings, hyphenation, footnotes)
   * Reading books with external applications. You can assign a separate program
     for each format.
+    
+%define gitdir   %{name}-%{version}
 
 %prep
-%setup -q -n freeLib-%{version}
+rm -rf %{gitdir}
+git clone --recurse-submodules %{url}.git %{gitdir}
+cd %{gitdir}
+git checkout v%{version}
 
 %build
+cd %{gitdir}
 mkdir build
 pushd build
 %{cmake} -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=%{_prefix} ..
@@ -54,8 +61,8 @@ pushd build
 popd
 
 %files
-%doc README.md
-%license LICENSE
+%doc %{gitdir}/README.md
+%license %{gitdir}/LICENSE
 %{_bindir}/%{name}
 %{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/applications/%{name}.desktop

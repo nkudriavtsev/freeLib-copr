@@ -29,7 +29,7 @@ has been discontinued.
   * Conversion to AZW3 (KF8), MOBI, MOBI7 (KF7), EPUB formats.
   * Working with several libraries.
   * Import libraries from inpx-files.
-  *  Book search and filtering.
+  * Book search and filtering.
   * OPDS and Web servers (QHttpServer required).
   * Saving books to a selected folder.
   * Different export settings for multiple devices.

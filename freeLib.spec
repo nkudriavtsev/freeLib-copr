@@ -46,6 +46,7 @@ rm -rf %{gitdir}
 git clone --recurse-submodules %{url}.git %{gitdir}
 cd %{gitdir}
 git checkout v%{version}
+sed -i -e 's/metainfo/appdata/g' data/CMakeLists.txt
 
 %build
 cd %{gitdir}
@@ -66,6 +67,9 @@ popd
 %doc %{gitdir}/README.md
 %license %{gitdir}/LICENSE
 %{_bindir}/%{name}
+%{_datadir}/%{name}/fonts/*.ttf
+%{_datadir}/%{name}/translation/*.qm
+%{_datadir}/%{name}/help/*.md
 %{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png

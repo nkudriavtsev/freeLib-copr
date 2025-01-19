@@ -52,7 +52,7 @@ cd %{gitdir}
 mkdir build
 pushd build
 %{cmake} -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=%{_prefix} ..
-%{cmake} --build . %{?_smp_mflags}
+%{cmake} --build .
 popd
 
 

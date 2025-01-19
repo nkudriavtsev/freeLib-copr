@@ -68,7 +68,7 @@ popd
 %license %{gitdir}/LICENSE
 %{_bindir}/%{name}
 %{_datadir}/%{name}/fonts/*.ttf
-%{_datadir}/%{name}/translation/*.qm
+%{_datadir}/%{name}/translations/*.qm
 %{_datadir}/%{name}/help/*.md
 %{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/applications/%{name}.desktop

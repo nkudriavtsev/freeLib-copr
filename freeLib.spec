@@ -17,6 +17,7 @@ BuildRequires:  qt6-qtsvg-devel
 BuildRequires:  quazip-qt6-devel
 BuildRequires:  tbb-devel
 BuildRequires:  qtkeychain-qt6-devel
+BuildRequires:  djvulibre-devel
 
 %description
 freeLib is a catalogs' manager for LibRusEc and Flibusta libraries.
